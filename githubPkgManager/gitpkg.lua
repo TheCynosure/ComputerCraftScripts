@@ -1,24 +1,23 @@
 local repoURLBase = "https://raw.githubusercontent.com/TheCynosure/ComputerCraftScripts/master/"
 local version = 1.0
 
-function get(args) {
-	res = http.get(repoURLBase .. args[1])
+function get(args)
+	res = http.get(repoURLBase .. args[1] .. ".lua")
 	fName = split(args[1], "/")
 	fName = fName[table.getn(fName) - 1]
-	fHandle = io.open(fName, "w")
+	print("")
+	print("Writing " .. fName)
+	fHandle = fs.open(fName, "w")
 	fHandle.write(res.readAll())
-}
+end
 
-function help() {
+function help()
 	print("")
 	print(" -- Command -- ")
 	print("get - Download a file based on its path")
 	print("exit - Exits the program")
-}
+end
 
-function exit() {
-	
-}
 
 print("Git Pkg Manager V" .. version .. " by TheCynosure")
 while true do
@@ -29,7 +28,5 @@ while true do
 		get(split(command, " "))
 	elseif(command == "help") then
 		help()
-	elseif(command == "exit") then
-		exit()
-	end
+	elseif(command == "exit") then break end
 end
