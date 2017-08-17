@@ -1,4 +1,4 @@
-args={}
+args={...}
 local repoURLBase = "https://raw.githubusercontent.com/TheCynosure/ComputerCraftScripts/master/"
 local version = 1.0
 
@@ -23,10 +23,10 @@ function split(s, delim)
 	return split_s
 end
 
-print("Getting " .. repoURLBase .. args[2] .. ".lua")
-res = http.get(repoURLBase .. path .. ".lua")
-fName = split(args[2], "/")
-fName = fName[#fName - 1]
+print("Getting " .. repoURLBase .. args[1] .. ".lua")
+res = http.get(repoURLBase .. args[1] .. ".lua")
+fName = split(args[1], "/")
+fName = fName[#fName]
 print("Writing " .. fName)
 fHandle = fs.open(fName, "w")
 fHandle.write(res.readAll())
