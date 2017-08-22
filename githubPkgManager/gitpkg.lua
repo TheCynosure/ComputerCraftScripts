@@ -1,4 +1,9 @@
+-- How to Use (In CC Terminal): gitpkg [Repo Name from base of this REPO]
+
 args={...}
+
+-- Change this URL to use a different github repository.
+-- Paths of the files will still be from the base of the repository.
 local repoURLBase = "https://raw.githubusercontent.com/TheCynosure/ComputerCraftScripts/master/"
 local version = 1.0
 
